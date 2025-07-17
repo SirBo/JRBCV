@@ -1,72 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jake Britner – Project Manager</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Britner - PRINCE2 Practitioner CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #1e293b; /* Dark text */
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #0f172a; /* Darker title text */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #3b82f6; /* Blue accent line */
+            border-radius: 9999px; /* Fully rounded */
+        }
+    </style>
 </head>
-<body>
-  <main class="container">
-    <header>
-      <img src="assets/profile.jpg" alt="Jake Britner" class="profile-img"/>
-      <h1>Jake Britner</h1>
-      <p class="tagline">Project Manager | Agile Champion | Delivery-Focused Leader</p>
-    </header>
+<body class="antialiased p-4 sm:p-6 md:p-8 lg:p-12">
 
-    <section>
-      <h2>About Me</h2>
-      <p>
-        I'm a certified Project Manager with 7+ years’ experience leading cross-functional teams to deliver complex software and infrastructure projects across public and private sectors. 
-        Known for balancing high-level strategy with hands-on delivery, I thrive in fast-paced environments and bring calm to chaos.
-      </p>
-    </section>
+    <!-- Main CV Container -->
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
 
-    <section>
-      <h2>Experience</h2>
-      <ul class="timeline">
-        <li>
-          <h3>Senior Project Manager – TechNova Ltd (2021–Present)</h3>
-          <p>Led a portfolio of digital transformation projects worth £5M+, consistently delivering on-time and under budget using Agile/PRINCE2 hybrids.</p>
-        </li>
-        <li>
-          <h3>Project Manager – UK Gov Digital Services (2017–2021)</h3>
-          <p>Delivered scalable government portals to millions of users. Introduced agile ceremonies, reducing delivery cycle by 28%.</p>
-        </li>
-        <li>
-          <h3>Junior PM – Axis Consult (2015–2017)</h3>
-          <p>Supported PMO and facilitated daily standups and retros. Created reporting dashboards adopted team-wide.</p>
-        </li>
-      </ul>
-    </section>
+        <!-- Header Section -->
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 sm:p-8 md:p-10 text-center rounded-t-2xl">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">Jake Britner</h1>
+            <p class="text-xl sm:text-2xl font-light">PRINCE2 Practitioner | Project Management Professional</p>
+            <div class="mt-4 text-sm sm:text-base flex flex-wrap justify-center gap-x-4 gap-y-2">
+                <a href="mailto:jake.britner@example.com" class="hover:underline flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    jake.britner@example.com
+                </a>
+                <a href="tel:+1234567890" class="hover:underline flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    +1 (234) 567-890
+                </a>
+                <a href="https://linkedin.com/in/jakebritner" target="_blank" class="hover:underline flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.3 0H3.7A3.7 3.7 0 000 3.7v12.6A3.7 3.7 0 003.7 20h12.6a3.7 3.7 0 003.7-3.7V3.7A3.7 3.7 0 0016.3 0zM6 17H3V7h3v10zm-.5-11.5A2.5 2.5 0 118 7a2.5 2.5 0 01-2.5-2.5zm11 11.5h-3V11c0-1.5-.5-2.5-2-2.5s-2 1-2 2.5v6h-3V7h3v1.5c.5-1 1.5-2 3-2s3 1.5 3 4.5v5z" clip-rule="evenodd"></path></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/jakebritner" target="_blank" class="hover:underline flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.164 6.839 9.48.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.37-1.34-3.37-1.34-.454-1.15-1.11-1.458-1.11-1.458-.908-.62.069-.608.069-.608 1.007.07 1.532 1.03 1.532 1.03.89 1.528 2.343 1.087 2.913.83.09-.645.35-1.087.636-1.337-2.22-.252-4.555-1.11-4.555-4.943 0-1.09.39-1.984 1.03-2.68-.103-.253-.447-1.27.098-2.65 0 0 .84-.268 2.75 1.025A9.564 9.564 0 0110 4.33a9.564 9.564 0 012.55.345c1.91-1.293 2.75-1.025 2.75-1.025.546 1.38.202 2.397.098 2.65.64.696 1.03 1.59 1.03 2.68 0 3.843-2.335 4.685-4.567 4.935.359.308.678.915.678 1.846 0 1.336-.012 2.415-.012 2.74C17.035 18.16 19.9 14.418 19.9 10 19.9 4.477 15.523 0 10 0z" clip-rule="evenodd"></path></svg>
+                    GitHub
+                </a>
+            </div>
+        </header>
 
-    <section>
-      <h2>Skills</h2>
-      <ul class="skills">
-        <li>Agile / Scrum / Kanban</li>
-        <li>PRINCE2 Practitioner</li>
-        <li>JIRA / Confluence / MS Project</li>
-        <li>Stakeholder Engagement</li>
-        <li>Risk & Budget Management</li>
-        <li>Remote Team Leadership</li>
-      </ul>
-    </section>
+        <div class="p-6 sm:p-8 md:p-10 lg:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>Certified ScrumMaster® (CSM)</li>
-        <li>PRINCE2® Practitioner</li>
-        <li>AgilePM Foundation & Practitioner</li>
-      </ul>
-    </section>
+            <!-- Left Column for Summary, Skills, Education -->
+            <div class="md:col-span-2 space-y-8">
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:jake.britner@example.com">jake.britner@example.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/jakebritner">linkedin.com/in/jakebritner</a></p>
-      <p>GitHub: <a href="https://github.com/jakebritner">github.com/jakebritner</a></p>
-    </section>
-  </main>
+                <!-- Summary Section -->
+                <section>
+                    <h2 class="text-2xl section-title">Summary</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Highly accomplished and results-oriented PRINCE2 Practitioner with X years of experience in leading and delivering complex projects across diverse industries. Proven ability to manage project lifecycles from initiation to closure, ensuring successful outcomes, stakeholder satisfaction, and adherence to budget and timelines. Adept at fostering collaborative environments, mitigating risks, and driving continuous improvement. Seeking to leverage extensive project management expertise to contribute to innovative and challenging initiatives.
+                    </p>
+                </section>
+
+                <!-- Experience Section -->
+                <section>
+                    <h2 class="text-2xl section-title">Experience</h2>
+
+                    <div class="mb-6 pb-4 border-b border-gray-200 last:border-b-0 last:pb-0">
+                        <h3 class="text-xl font-semibold text-gray-800">Senior Project Manager</h3>
+                        <p class="text-blue-600 font-medium">Tech Solutions Inc. | City, State</p>
+                        <p class="text-sm text-gray-500 mb-2">January 2020 – Present</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Led cross-functional teams of 10+ members to deliver enterprise software solutions, consistently meeting deadlines and exceeding client expectations.</li>
+                            <li>Managed project budgets up to $X million, achieving 15% cost savings through optimized resource allocation and vendor negotiation.</li>
+                            <li>Implemented PRINCE2 methodologies, improving project success rates by 25% and enhancing stakeholder communication.</li>
+                            <li>Developed comprehensive project plans, risk assessments, and progress reports for executive leadership.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6 pb-4 border-b border-gray-200 last:border-b-0 last:pb-0">
+                        <h3 class="text-xl font-semibold text-gray-800">Project Coordinator</h3>
+                        <p class="text-blue-600 font-medium">Global Innovations Ltd. | City, State</p>
+                        <p class="text-sm text-gray-500 mb-2">June 2017 – December 2019</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Supported Senior Project Managers in planning, executing, and monitoring various IT and business transformation projects.</li>
+                            <li>Coordinated project schedules, resources, and documentation, ensuring smooth workflow and information flow.</li>
+                            <li>Assisted in stakeholder management and communication, resolving issues promptly to maintain project momentum.</li>
+                        </ul>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- Right Column for Skills, Education, Certifications -->
+            <div class="md:col-span-1 space-y-8">
+
+                <!-- Skills Section -->
+                <section>
+                    <h2 class="text-2xl section-title">Skills</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">PRINCE2 Practitioner</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Agile Methodologies</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Scrum</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Risk Management</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Stakeholder Management</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Budget Management</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Team Leadership</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Jira</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Microsoft Project</span>
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Conflict Resolution</span>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section>
+                    <h2 class="text-2xl section-title">Education</h2>
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Master of Science in Project Management</h3>
+                        <p class="text-blue-600 font-medium">University Name | City, State</p>
+                        <p class="text-sm text-gray-500">Graduated: May 2017</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">Bachelor of Business Administration</h3>
+                        <p class="text-blue-600 font-medium">Another University | City, State</p>
+                        <p class="text-sm text-gray-500">Graduated: May 2015</p>
+                    </div>
+                </section>
+
+                <!-- Certifications Section -->
+                <section>
+                    <h2 class="text-2xl section-title">Certifications</h2>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>PRINCE2 Practitioner (Axelos) - Issued: 2018</li>
+                        <li>Certified ScrumMaster (CSM) - Issued: 2021</li>
+                        <li>Project Management Professional (PMP) - Expected: 2025</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 text-center rounded-b-2xl">
+            <p class="text-sm">&copy; 2025 Jake Britner. All rights reserved.</p>
+            <p class="text-xs mt-1">Built with HTML, Tailwind CSS, and a passion for project success.</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
