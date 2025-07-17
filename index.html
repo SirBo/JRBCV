@@ -97,6 +97,52 @@
             animation: fadeInUp 1s ease-out;
         }
 
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            animation: photoFloat 3s ease-in-out infinite;
+        }
+
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            z-index: 1;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-photo:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -370,6 +416,16 @@
             transform: translateX(5px);
         }
 
+        .contact-item:hover a {
+            color: white;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -450,6 +506,12 @@
                 font-size: 1.2rem;
             }
             
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 25px;
+            }
+            
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -482,7 +544,10 @@
         
         <div class="container">
             <div class="hero-content">
-                <h1>Project Manager</h1>
+                <div class="profile-photo">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGGVN6_JeojQg/profile-displayphoto-shrink_800_800/B4EZeVXAHjHcAc-/0/1750557525609?e=1758153600&v=beta&t=kTkKkc8I94DhN-qXcaN4wf38LuYYxpes947S7VXeB6g" alt="Jake Britner - Professional Profile Photo">
+                </div>
+                <h1>Jake Britner</h1>
                 <p class="subtitle">PRINCE2 Practitioner | Strategic Leader | Digital Transformation</p>
                 <p class="location">📍 Manchester, UK | Currently at PHMG</p>
                 <div class="cta-buttons">
@@ -607,7 +672,7 @@
                         <div class="contact-icon">📱</div>
                         <div>
                             <strong>Phone</strong><br>
-                            +44 07463659080
+                            07463659080
                         </div>
                     </div>
                     <div class="contact-item">
