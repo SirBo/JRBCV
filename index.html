@@ -11,6 +11,13 @@
             box-sizing: border-box;
         }
 
+        .centered-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -1267,7 +1274,7 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="cv/Jake_Britner_CV.pdf" class="desktop-cv-btn" download>Download CV</a>
+                <a href="cv/Jake_Britner_CV.pdf" class="desktop-cv-btn" download aria-label="Download Jake Britner's CV from navigation">Download CV</a>
             </div>
         </div>
     </nav>
@@ -1276,25 +1283,26 @@
         <div class="container">
             <div class="hero-content">
                 <div class="profile-photo"></div>
-            <div class="orb orb3" style="transform: none !important;"></div>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content" style="transform: none !important;">
+            </div>
+            <div class="floating-orbs">
+                <div class="orb orb3" style="transform: none !important;"></div>
+            <div class="hero-content">
                 <div class="profile-photo">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGGVN6_JeojQg/profile-displayphoto-shrink_800_800/B4EZeVXAHjHcAc-/0/1750557525609?e=1758153600&v=beta&t=kTkKkc8I94DhN-qXcaN4wf38LuYYxpes947S7VXeB6g" alt="Jake Britner - Professional Profile Photo" loading="eager">
+                    <img src="media/Profile.jpg" alt="Jake Britner - Professional Profile Photo" loading="eager">
                 </div>
                 <h1>Jake Britner</h1>
                 <p class="subtitle">PRINCE2 Practitioner | Strategic Project Leader | Digital Transformation Expert</p>
                 <p class="location">
-                    <span style="display: flex; justify-content: center; align-items: center; gap: var(--spacing-xs);">
+                    <span class="centered-flex">
                         <span class="status-indicator"></span>
-                        <span>Available for New Opportunities | Manchester, UK | Currently at PHMG</span>
+                        <span style="text-align: center;">Available for New Opportunities | Manchester, UK | Currently at PHMG</span>
                     </span>
                 </p>
                 <div class="cta-buttons" style="justify-content: center;">
-                    <a href="cv/Jake_Britner_CV.pdf" class="cta-button primary" download>Download CV</a>
+                    <a href="cv/Jake_Britner_CV.pdf" class="cta-button primary" download aria-label="Download Jake Britner's CV from hero section">Download CV</a>
                     <a href="#experience" class="cta-button glass">View Experience</a>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
@@ -1448,21 +1456,16 @@
             </div>
             <div class="contact-form" style="display: flex; flex-direction: column; justify-content: center; padding: var(--spacing-md);">
                 <h3 style="text-align: center;">Download My CV</h3>
-                <a href="cv/Jake_Britner_CV.pdf" download class="submit-btn" style="max-width: 200px; margin: 0 auto;">Download CV</a>
+                <a href="cv/Jake_Britner_CV.pdf" download class="submit-btn" style="max-width: 200px; margin: 0 auto;" aria-label="Download Jake Britner's CV from contact section">Get My CV</a>
             </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Jake Britner. All rights reserved. | Built with passion and precision v3.</p>
-        </div>
-    </footer>
-
     <script>
-        // Mobile navigation toggle
+        // =========================
+        // Mobile Navigation Toggle
+        // =========================
         const navToggle = document.getElementById('nav-toggle');
         const navLinks = document.getElementById('nav-links');
 
@@ -1471,7 +1474,9 @@
             this.setAttribute('aria-expanded', navLinks.classList.contains('active'));
         });
 
-        // Close mobile menu when clicking on a link
+        // =========================
+        // Close Mobile Menu on Link Click
+        // =========================
         navLinks.addEventListener('click', function(e) {
             if (e.target.tagName === 'A') {
                 this.classList.remove('active');
@@ -1479,7 +1484,9 @@
             }
         });
 
-        // Navbar scroll effect
+        // =========================
+        // Navbar Scroll Effect
+        // =========================
         let lastScrollY = 0;
         const navbar = document.getElementById('navbar');
 
@@ -1507,12 +1514,14 @@
             }
         });
 
-        // Smooth scrolling for navigation links
+        // =========================
+        // Smooth Scrolling for Navigation Links
+        // =========================
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    e.preventDefault();
                     const navbarHeight = navbar.offsetHeight;
                     const targetPosition = target.offsetTop - navbarHeight - 20;
                     
@@ -1524,7 +1533,9 @@
             });
         });
 
-        // Intersection Observer for animations
+        // =========================
+        // Intersection Observer for Animations
+        // =========================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -20px 0px'
@@ -1552,7 +1563,9 @@
             });
         });
 
-        // Optimized parallax effect
+        // =========================
+        // Optimized Parallax Effect
+        // =========================
         function updateParallax() {
             const scrolled = window.scrollY;
             const heroContent = document.querySelector('.hero-content');
@@ -1585,10 +1598,12 @@
             }
         });
 
-        // Preload critical images
+        // =========================
+        // Preload Critical Images
+        // =========================
         function preloadImages() {
             const criticalImages = [
-                'https://media.licdn.com/dms/image/v2/D4E03AQGGVN6_JeojQg/profile-displayphoto-shrink_800_800/B4EZeVXAHjHcAc-/0/1750557525609?e=1758153600&v=beta&t=kTkKkc8I94DhN-qXcaN4wf38LuYYxpes947S7VXeB6g'
+                'media/Profile.jpg'
             ];
             
             criticalImages.forEach(function(src) {
@@ -1597,7 +1612,9 @@
             });
         }
 
-        // Initialize on load
+        // =========================
+        // Initialize on Load
+        // =========================
         window.addEventListener('load', function() {
             preloadImages();
             
@@ -1605,13 +1622,24 @@
             document.body.classList.remove('loading');
         });
 
-        // Touch optimizations for mobile
+        // =========================
+        // Touch Optimizations for Mobile
+        // =========================
         if ('ontouchstart' in window) {
             document.addEventListener('touchstart', function() {}, {passive: true});
         }
 
-        // Keyboard navigation support
+        // =========================
+        // Keyboard Navigation Support
+        // =========================
         document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.focus();
+            }
+        });
+    </script>
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 navToggle.setAttribute('aria-expanded', 'false');
