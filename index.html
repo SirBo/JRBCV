@@ -56,15 +56,14 @@
             height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            animation: gradientShift 20s ease infinite;
             z-index: -2;
             will-change: background-position;
         }
 
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
+            0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         /* Noise overlay - Reduced for performance */
@@ -493,6 +492,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            will-change: transform, opacity;
+            transform: translateZ(0);
         }
 
         .skill-card::before {
@@ -577,6 +578,8 @@
             position: relative;
             margin-left: var(--spacing-lg);
             transition: all 0.3s ease;
+            will-change: transform, opacity;
+            transform: translateZ(0);
         }
 
         .timeline-item::before {
@@ -647,6 +650,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            will-change: transform, opacity;
+            transform: translateZ(0);
         }
 
         .cert-badge:hover {
@@ -789,6 +794,12 @@
 
         .footer p {
             font-size: 0.8rem;
+        }
+
+        /* Add to existing CSS */
+        .navbar, .hero-content, .section {
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         /* Tablet Styles - 768px and up */
@@ -1487,17 +1498,29 @@
         let lastScrollY = 0;
         const navbar = document.getElementById('navbar');
 
-        function handleScroll() {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        // Replace the existing scroll handlers with this optimized version
+        let scrollTimeout;
+        const handleScroll = () => {
+            if (!scrollTimeout) {
+                scrollTimeout = requestAnimationFrame(() => {
+                    const currentScrollY = window.scrollY;
+                    const aboutSection = document.getElementById('about');
+                    
+                    if (currentScrollY >= (aboutSection?.offsetTop || 0)) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    
+                    // Limit parallax to hero section only
+                    if (currentScrollY < window.innerHeight) {
+                        updateParallax();
+                    }
+                    
+                    scrollTimeout = null;
+                });
             }
-            
-            lastScrollY = currentScrollY;
-        }
+        };
 
         // Throttled scroll handler for better performance
         let ticking = false;
@@ -1563,25 +1586,29 @@
         // =========================
         // Optimized Parallax Effect
         // =========================
-        function updateParallax() {
+        // Replace existing event listeners with debounced version
+        const debounce = (fn, delay) => {
+            let timeoutId;
+            return (...args) => {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => fn(...args), delay);
+            };
+        };
+
+        // Optimize parallax
+        const updateParallax = debounce(() => {
             const scrolled = window.scrollY;
             const heroContent = document.querySelector('.hero-content');
-            const orbs = document.querySelectorAll('.orb');
             
             if (window.innerWidth >= 768 && scrolled < window.innerHeight) {
-                if (heroContent) {
+                requestAnimationFrame(() => {
                     const translateY = scrolled * 0.2;
                     const opacity = Math.max(0, 1 - (scrolled * 0.0006));
-                    heroContent.style.transform = `translateY(${translateY}px)`;
+                    heroContent.style.transform = `translate3d(0, ${translateY}px, 0)`;
                     heroContent.style.opacity = opacity;
-                }
-                
-                orbs.forEach(function(orb, index) {
-                    const speed = 0.05 + (index * 0.03);
-                    orb.style.transform = `translateY(${scrolled * speed}px)`;
                 });
             }
-        }
+        }, 16);
 
         // Throttled parallax handler
         let parallaxTicking = false;
@@ -1630,13 +1657,6 @@
         // Keyboard Navigation Support
         // =========================
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggle.focus();
-            }
-        });
-    </script>
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 navToggle.setAttribute('aria-expanded', 'false');
